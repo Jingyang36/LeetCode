@@ -21,3 +21,30 @@ int removeDuplicates(int* nums, int numsSize){
 	}
 	return i;
 }
+
+
+
+/////////////////////////
+// Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
+// Input: nums = [1,1,1,2,2,3]
+// Output: 5, nums = [1,1,2,2,3]
+// Explanation: Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively. It doesn't matter what you leave beyond the returned length.
+
+int removeDuplicates(int* nums, int numsSize){
+    	if (numsSize == 0)
+	{
+		return 0;
+	}
+		
+	int i = 1;
+	for (int j = 1, dup1=0, dup2; j < numsSize; j++)
+	{
+		if (!(dup2 = nums[j] == nums[i-1])||!dup1)
+		{
+            dup1 = dup2;
+			nums[i++] = nums[j];
+		}
+	}
+	return i;
+
+}
